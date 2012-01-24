@@ -46,5 +46,11 @@ Dev:
   
 
 Deploy:
-  1. ....
-  heroku stuff like config.assets.initialize_on_precompile = false
+  1. Signup at https://api.heroku.com/signup
+  2. git init .
+  3. git add .
+  4. git commit -m "Initial Commit"
+  5. heroku create --stack cedar
+     Enter in the credentials you signed up with.
+     The url of the app will be given to you after the app has been created.
+  6. git push heroku master
