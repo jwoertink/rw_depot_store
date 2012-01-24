@@ -5,6 +5,7 @@ gem 'jquery-rails'
 gem 'activeadmin'
 gem 'paperclip'
 gem 'sass-rails',   '~> 3.1.5'
+gem 'rw_depot_theme', :git => "git://github.com/jwoertink/rw_depot_theme.git"
 
 group :assets do
   gem 'coffee-rails', '~> 3.1.1'
@@ -14,7 +15,6 @@ end
 group :development do
   gem 'sqlite3'
   gem 'heroku'
-  gem 'rw_depot_theme', :git => "git://github.com/jwoertink/rw_depot_theme.git"
 end
 
 group :production do
