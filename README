@@ -54,3 +54,4 @@ Deploy:
      Enter in the credentials you signed up with.
      The url of the app will be given to you after the app has been created.
   6. git push heroku master
+  7. heroku run rake db:migrate
