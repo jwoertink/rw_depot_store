@@ -1,0 +1,12 @@
+<h1>Welcome to our Store!</h1>
+<p>We have tons of products just for you! Pastrami short loin tongue, ham hock pancetta sirloin pork loin shankle bresaola rump pork beef chicken kielbasa. Drumstick bresaola boudin tenderloin meatloaf biltong short loin jowl, filet mignon fatback shank meatball. Salami andouille shoulder pork belly, pig swine ribeye prosciutto cow chicken biltong boudin corned beef shankle strip steak. Ball tip ham biltong tongue, rump fatback pork cow short ribs meatball andouille shoulder.</p>
+<h3>Latest In Stock</h3>
+<div id="products">
+  <% @products.each do |product| %>
+    <div class="product">
+      <%= link_to(product.name, product_path(product)) %><br>
+      <%= image_tag(product.image.url(:main), :size => '80x100') %><br>
+      <span class="price"><%= number_to_currency(product.price) %></span>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,17 @@
+<h2><%= @product.name %></h2>
+<div class="left">
+  <%= image_tag(@product.image.url(:main)) %>
+</div>
+<div class="right">
+  <span>Price: <%= number_to_currency(@product.price) %></span>
+  <%= form_for(@line_item) do |f| %>
+    <%= hidden_field_tag(:product_id, @product.id) %>
+    <%= f.label(:quantity) %><br>
+    <%= f.select(:quantity, options_for_select((1..10).to_a)) %>
+    <%= f.submit('Add to Order') %>
+  <% end %>
+</div>
+<br clear="all">
+
+<h4>About this product</h4>
+<p><%= @product.description %></p>

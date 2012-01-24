@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RubyWeekend Depot Store</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="header">
+      <%= link_to(image_tag(asset_path('rw_depot_theme_logo.png')), root_path, :id => 'logo') %>
+      <div id="social">
+        <%= link_to(image_tag('twitter-icon.gif') + " Follow Us", 'http://twitter.com', :target => '_blank') %>
+        <%= link_to(image_tag('facebook-icon.gif') + " Like Us", 'http://www.facebook.com', :target => '_blank') %>
+        <div id="search">
+          <%= form_tag('/search', :method => "get") do %>
+            <%= text_field_tag(:q) %>
+            <%= submit_tag('Search') %>
+          <% end %>
+        </div>
+      </div>
+      <br clear="all">
+      <div id="navbar">
+        <ul id="nav">
+          <li><%= link_to('Home', root_path) %></li>
+          <li><%= link_to('About', root_path) %></li>
+          <li><%= link_to('Products', products_path) %></li>
+          <li><%= link_to('Contact Us', root_path) %></li>
+          <li><%= link_to_cart(@order) %></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content">
+      <div id="flash">
+        <%= notice %>
+      </div>
+      <%= yield %>
+    </div>
+    <div id="footer">
+      <p>Copyright &copy; 2012. RubyWeekend Depot</p>
+      <p>Powered by <%= image_tag('rails.png') %>
+    </div>
+  </div>
+  <%= javascript_include_tag "application" %>
+</body>
+</html>

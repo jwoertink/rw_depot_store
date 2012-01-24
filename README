@@ -1,0 +1,50 @@
+NOTES:
+
+Setup:
+  0. rails new depot
+  1. setup gemfile
+  2. bundle
+  3. rails g scaffold product name:string price:float description:text
+  4. rails g active_admin:install
+  5. rails g active_admin:resource Product
+     rails g active_admin:resource AdminUser
+  6. rails g migration add_image_to_products
+      might as well update the price to default 0.0
+      image_file_name; image_file_size; image_content_type
+      has_attached_file :image,
+                        :url => '/uploads/:class/:id_partition/:style_:basename.:extension',
+                        :path => ':rails_root/public/uploads/:class/:id_partition/:style_:basename.:extension',
+                        :styles => { :main => '300x350#', :thumb => '50X50>' }
+  7. rake db:migrate
+     create seed file
+     rake db:seed
+  8. delete public index.html
+  * boot up server and see how it looks
+  9. rails g rw_depot_theme:install
+  10. rails s
+  
+  
+Dev:
+  1. rails g controller site
+  2. add yield to layout, and create index.html.erb for site controller
+  3. create products iteration
+  4. create scope method for latest products
+  5. update routes for products :only => [:index, :show]
+  6. clean up products controller
+  7. rails g model order number:string
+  8. rails g model line_item order_id:integer name:string price:float quantity:integer
+    edit migration so default price is 0.0 and quantity is 1
+  9. rake db:migrate
+  10. update order has_many :line_items, :dependent => :destroy
+      update line_item belongs_to :order
+  11. setup new order in application controller
+  12. update products#show remove json stuff. add @line_item = current_order.line_items.build
+  13. Use helper to link_to_cart
+  14. Create about and contact page
+  15. create search
+  16. clean up views (play with some css, or html)
+  
+
+Deploy:
+  1. ....
+  heroku stuff like config.assets.initialize_on_precompile = false

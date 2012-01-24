@@ -1,0 +1,10 @@
+<h2>Our Products</h2>
+<div id="products">
+  <% @products.each do |product| %>
+    <div class="product">
+      <%= link_to(product.name, product_path(product)) %><br>
+      <%= image_tag(product.image.url(:main), :size => '80x100') %><br>
+      <span class="price"><%= number_to_currency(product.price) %></span>
+    </div>
+  <% end %>
+</div>
