@@ -40,9 +40,11 @@ Dev:
   11. setup new order in application controller
   12. update products#show remove json stuff. add @line_item = current_order.line_items.build
   13. Use helper to link_to_cart
-  14. Create about and contact page
-  15. create search
-  16. clean up views (play with some css, or html)
+  14. Create new product in admin
+      update app/admin/products.rb w/ form
+  15. Create about and contact page
+  16. create search with pagination
+  17. clean up views (play with some css, or html)
   
 
 Deploy:

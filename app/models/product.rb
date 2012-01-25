@@ -9,4 +9,8 @@ class Product < ActiveRecord::Base
     order('created_at DESC').limit(5)
   end
   
+  def self.search(query)
+    where("name LIKE ?", "%#{query}%")
+  end
+  
 end

@@ -1,0 +1,7 @@
+<h2>Search Results</h2>
+<h3>Found <%= @results.count %> results</h3>
+<% @results.each do |product| %>
+  <p><%= link_to(product.name, product_path(product)) %></p>
+<% end %>
+
+<%= paginate(@results) %>

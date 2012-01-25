@@ -5,6 +5,9 @@ Depot::Application.routes.draw do
 
   resources :products, :only => [:index, :show]
   resources :line_items, :only => [:create]
+  
+  get 'search' => 'searches#index'
+  get 'about' => 'site#about'
 
   root :to => "site#index"
 end
